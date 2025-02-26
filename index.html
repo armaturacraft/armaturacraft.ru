@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Armatua Craft 6</title>
+    <title>Armatura Craft 6</title>
+
+    <!--fetch('https://mcapi.us/server/status?ip='+serverIp+'&port='+serverPort)
+    .then(response => response.json())
+    .then(data => console.log(data));
+
+    https://cindr.org/how-to-get-a-minecraft-servers-player-count-motd-and-status-using-javascript/
+    -->
 </head>
 <body>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap');
+        @import url('http://cdn.armaturacraft.ru/assets/fonts/minecraft.css');
+
+        @keyframes link_hover {
+            from {color:rgb(221, 234, 255);}
+            to {color: rgb(54, 98, 255);}
+        }
 
         html {
-            height: 100%;
+            height: 100vh;
             width: 100vw;
-            background-image: url(screen.png);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-color: rgb(15, 24, 55);
+            font-family: 'Inter';
+            color: rgb(221, 234, 255);
         }
 
         body {
@@ -23,42 +35,176 @@
             padding:0;
         }
 
-        h1 {
-            font-size: 4.5vw;
-            font-family: 'Unbounded', sans-serif;
-            color: rgb(237, 225, 255);
-            text-shadow: -1.5px -1.5px 0 rgb(44, 42, 46), 1.5px -1.5px 0 rgb(44, 42, 46), -1.5px 1.5px 0 rgb(44, 42, 46), 1.5px 1.5px 0 rgb(44, 42, 46);
-            
+        .parent_centered {
             position: fixed;
             inset: 0;
             width: fit-content;
             height: fit-content;
             margin: auto;
-
             text-align: center;
         }
 
-        span {
-            font-size: calc(4.5vw / 2.2);
-            text-shadow: -1.5px -1.5px 0 rgb(44, 42, 46), 1.5px -1.5px 0 rgb(44, 42, 46), -1.5px 1.5px 0 rgb(44, 42, 46), 1.5px 1.5px 0 rgb(44, 42, 46);
-            color: rgb(194, 194, 197);
+        .centered {
+            text-align: center;
+        }
+
+        .info_header_1 {
+            font-size: min(3.1vw, 51px);
+            font-family: 'Unbounded', sans-serif;
+        }
+
+        .info_header_3 {
+            font-size: min(calc(3.1vw / 1.7), 28px);
+            font-size: calc(3.1vw / 1.7);
+            font-family: 'Unbounded', sans-serif;
+        }
+
+        .info_para {
+            font-size: min(2vw, 28px);
+            padding-left: 15%;
+            padding-right: 15%;
+            text-align: left;
+            padding-bottom: 1.5vh;
+        }
+
+        .header {
+            background-image: url(assets/screen.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: min(50vw, 700px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1.title_text {
+            font-size: min(4.5vw, 75px);
+            font-family: 'Unbounded', sans-serif;
+            color: rgb(78, 47, 124);
+            padding: 1.8vw;
+            padding-bottom: min(calc(1.8vw + 5vw), 75px);
+        }
+
+        .opaque_box {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+        }
+
+        .play {
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+            padding: 15px;
+        }
+
+        span.subtitle_text {
+            font-size: min(calc(4.5vw / 2.2), calc(75px / 2.42));
+            font-weight: bold;
+            color: rgb(21, 33, 75);
             font-family: 'Inter';
+            top: 5vw;
         }
 
         .filter {
-            height: 100vh;
-            width: 100vw;
-            backdrop-filter: brightness(85.0042%) blur(2.042px) sepia(20%);
-            margin-left: auto;
-            margin-right: auto;
+            height: min(50vw, 700px);
+            backdrop-filter: sepia(30%) grayscale(15%);
             background-color: rgba(240, 248, 255, 0.08);
         }
+
+        .minetext {
+            font-family: 'Minecraft', sans-serif;
+            font-size: min(2vw, 28px);
+            display: block;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            color: rgb(170, 179, 199);
+        }
+        .minetext:nth-last-child(1) {
+            color: rgb(169, 204, 170);
+        }
+
+        a {color: rgb(221, 234, 255);}
+        a:hover {
+            animation: link_hover 0.5s forwards;
+        }
+
+        .para {
+            font-size: min(2vw, 28px);
+            text-align: left;
+        }
     </style>
-    <div class="filter">
-        <h1>
-            Armatura Craft 6<br>
-            <span>Лучший приватный сервер</span>
-        </h1>
+
+    <div class="header">
+        <div class="filter">
+            <h1 class="title_text parent_centered opaque_box">
+                SAMPLETEXT Craft 6<br>
+            </h1>
+            <span class="subtitle_text parent_centered">Лучший приватный сервер</span>
+        </div>
     </div>
+    <div class="body">
+        <h1 class="centered info_header_1">Играть</h1>
+        <div class="play opaque_box">
+            <h3 class="info_header_3">Armatura Craft</h3>
+            <p class="para">play.armaturacraft.ru</p>
+            <p class="para">online: <span id="tofetch">?/42</span>; <span id="working">?</span></p>
+            <p class="para">fabric 1.20.1 + modpack</p>
+        </div>
+
+        <h1 class="centered info_header_1">Сервер</h1>
+        <p class="centered info_para">Сервер оснащён самыми лучшими харктеристиками из
+            предложенных хостингом. Четыре ядра процессора, шестнадцать гигабайтов
+            оперативной памяти и сто гигабайтов диска. Играйте в удовольствие!</p>
+
+        <h1 class="centered info_header_1">Сборка</h1>
+        <p class="centered info_para">Наша сборка не заменяет ваниллу, а её дополняет. 
+            Это означает, что добавленные модификациями предметы не будут выбиваться из виду 
+            и отлично впишутся в оригинальную игру.</p>
+        <p class="centered info_para">В сборке есть свой мод, который добавляет кучу всего 
+            интересного, с чем вы можете ознакомиться в игре на сервере.</p>
+        <p class="centered info_para">Она оптимизирована настолько, что её FPS даже на самых 
+            лагучих ПК заставят вас удивиться. Лишь посмотрите сравнение трёх версий игры 
+            на картинке <a href="https://cdn.armaturacraft.ru/assets/preview/optimization_no_text.png">тут</a>.
+            <br><br><b>Vanilla:</b>
+            <span class="minetext">
+                Minecraft 1.20.1 (1.20.1/vanilla)<br>
+                118 fps T: 120 vsyncfancy
+            </span>
+            <b>Vanilla + Sodium:</b>
+            <span class="minetext">
+                Minecraft 1.20.1 (1.20.1/fabric/Fabric)<br>
+                144 fps T: inf vsyncfancy
+            </span>
+            <b>Armatura Craft:</b>
+            <span class="minetext">
+                Minecraft 1.20.1 (1.20.1/fabric/Fabric)<br>
+                740 fps / Unlimited fps
+            </p>
+        </p>
+        
+        <h3 class="centered info_header_3">Ждём тебя на сервере!</h3>
+    </div>
+
+    <script defer>
+        function getServerData(serverIp, serverPort) {
+            fetch('https://mcapi.us/server/status?ip='+serverIp)
+                .then(response => response.json())
+                .then(data => useGottenData(data));
+            
+            function useGottenData(data) {
+                const plrs = document.getElementById("tofetch");
+                plrs.innerText = data.players.now + "/" + data.players.max;
+
+                const working = document.getElementById("working");
+                if (data.online) {
+                    working.innerText = "работает"
+                } else {
+                    working.innerText = "не работает"
+                }
+            }
+        }
+
+        getServerData("play.armaturacraft.ru");
+    </script>
 </body>
 </html>
