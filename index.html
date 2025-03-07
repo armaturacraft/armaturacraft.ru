@@ -28,6 +28,8 @@
             background-color: rgb(15, 24, 55);
             font-family: 'Inter';
             color: rgb(221, 234, 255);
+            overflow: scroll;
+            overflow-x: hidden;
         }
 
         body {
@@ -131,6 +133,14 @@
         .para {
             font-size: min(2vw, 28px);
             text-align: left;
+        }
+        ::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #FF0000;
         }
     </style>
 
