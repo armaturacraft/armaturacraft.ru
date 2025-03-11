@@ -156,7 +156,7 @@
         <h1 class="centered info_header_1">Играть</h1>
         <div class="play opaque_box">
             <h3 class="info_header_3">Armatura Craft</h3>
-            <p class="para">play.armaturacraft.ru</p>
+            <p class="para" id="ip">play.armaturacraft.ru</p>
             <p class="para">online: <span id="tofetch">?/42</span>; <span id="working">?</span></p>
             <p class="para">fabric 1.20.1 + modpack</p>
         </div>
@@ -197,6 +197,8 @@
 
     <script defer>
         function getServerData(serverIp, serverPort) {
+            document.getElementById("ip").innerText = serverIp;
+            
             fetch('https://mcapi.us/server/status?ip='+serverIp)
                 .then(response => response.json())
                 .then(data => useGottenData(data));
